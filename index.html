@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Champions League - Penalty Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-container">
+    
+    <!-- ВЕРХНЯ ПАНЕЛЬ РАХУНКУ -->
+    <div class="ui-panel">
+        <div class="scoreboard">
+            <div>PSG: <span class="score-val" id="score-psg">0</span></div>
+            <div>Arsenal: <span class="score-val" id="score-arsenal">0</span></div>
+        </div>
+        <div id="message">Vyberte cíl a střílejte!</div>
+    </div>
+
+    <!-- ІГРОВІ ЕЛЕМЕНТИ (Воротар, мішені, м'яч, гравець) -->
+    <img src="goalkeeper_center.png" id="goalkeeper" alt="Goalkeeper">
+    
+    <div class="target-zone">
+        <div class="target up-left" data-target="up_left"></div>
+        <div class="target up-center" data-target="up_center"></div>
+        <div class="target up-right" data-target="up_right"></div>
+        <div class="target down-left" data-target="down_left"></div>
+        <div class="target down-center" data-target="down_center"></div>
+        <div class="target down-right" data-target="down_right"></div>
+    </div>
+
+    <!-- Дефолтний гравець при завантаженні -->
+    <img src="dembele_stand.png" id="kicker" class="kicker-stand" alt="Kicker">
+    <img src="ball.png" id="ball" alt="Ball">
+
+    <!-- СТАРТОВИЙ ЕКРАН -->
+    <div class="overlay" id="start-screen">
+        <div class="modal">
+            <h1>ZA KOHO HRÁTE?</h1>
+            <p>Vyberte svůj tým a střílejte penalty!</p>
+            <div class="team-cards">
+                <div class="team-card" onclick="startGame('dembele')">
+                    <img src="psg_logo.png" class="team-logo" alt="PSG">
+                    <h2>PSG</h2>
+                </div>
+                <div class="team-card" onclick="startGame('rice')">
+                    <img src="arsenal_logo.png" class="team-logo arsenal-fix" alt="Arsenal">
+                    <h2>Arsenal</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЕКРАН БОНУСУ (БЕЗПЕЧНИЙ ДЛЯ ТІКТОК) -->
+    <div class="overlay" id="end-screen" style="display: none;">
+        <div class="modal">
+            <h1>TVOJE ODMĚNA JE ZDE!</h1>
+            <p>Vyber si svůj balíček: <b>100% až do 12 500 + 200 kol navíc</b> na hry, nebo <b>150% až do 7 500</b> na zápasy!</p>
+            <a href="https://gamehub.g2afse.com/click?pid=3799&offer_id=1333" class="bonus-btn">VYZVEDNOUT DÁREK</a>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
