@@ -1,0 +1,218 @@
+body {
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    
+    /* Фікси для мобільних: прибираємо виділення елементів */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ВЕРТИКАЛЬНИЙ КОНТЕЙНЕР (ЗІ ЗРІЗОМ ВОДЯНОГО ЗНАКА) */
+.game-container {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    background: url('background.jpg') no-repeat center top;
+    background-size: 105%; 
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(19, 234, 201, 0.3);
+}
+
+/* ОВЕРЛЕЇ ТА МОДАЛЬНІ ВІКНА */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.modal {
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    padding: 25px 15px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #13eac9;
+    width: 85%;
+    color: white;
+    box-sizing: border-box;
+}
+
+.modal h1 { margin-top: 0; color: #fff; font-size: 26px; text-transform: uppercase; }
+.modal p { color: #aaa; margin-bottom: 25px; font-size: 15px; }
+
+.team-cards {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.team-card {
+    background: #222;
+    padding: 15px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    width: 120px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.team-card:hover {
+    background: #333;
+    border-color: #13eac9;
+}
+
+.team-logo { 
+    height: 75px; 
+    object-fit: contain; 
+}
+
+.team-card:nth-child(1) .team-logo {
+    width: 75px;
+    transform: scale(1.1);
+}
+
+.arsenal-fix {
+    max-width: 70px;
+}
+
+.team-card h2 {
+    font-size: 16px;
+    margin: 5px 0 0 0;
+}
+
+/* КНОПКА БОНУСУ */
+.bonus-btn {
+    display: block;
+    background: #13eac9;
+    color: #000;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(19, 234, 201, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(19, 234, 201, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(19, 234, 201, 0); }
+}
+
+/* ВОРОТАР */
+#goalkeeper {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 105px;
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* СІТКА ПРИЦІЛІВ */
+.target-zone {
+    position: absolute;
+    top: 155px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px; 
+    height: 135px;
+    z-index: 20;
+}
+
+.target {
+    position: absolute;
+    width: 30px; 
+    height: 30px; 
+    border: 2px dashed rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(19, 234, 201, 0.1);
+}
+
+.target:hover {
+    background: rgba(19, 234, 201, 0.35);
+    border-color: #13eac9;
+}
+
+.up-left { top: 2px; left: 2px; }
+.up-right { top: 2px; right: 2px; }
+.down-left { bottom: 22px; left: 2px; } 
+.down-right { bottom: 22px; right: 2px; } 
+.up-center { top: 2px; left: calc(50% - 15px); }
+.down-center { bottom: 22px; left: calc(50% - 15px); } 
+
+/* М'ЯЧ */
+#ball {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 36px;
+    z-index: 15;
+}
+
+/* ГРАВЕЦЬ */
+#kicker {
+    position: absolute;
+    bottom: 30px;
+    height: 240px;
+    z-index: 14;
+    transition: all 0.3s ease;
+}
+
+.kicker-stand { left: 50%; transform: translateX(-85%); }
+.kicker-kick { left: 50%; transform: translateX(-45%) scale(1.05); }
+
+/* ВЕРХНЯ UI ПАНЕЛЬ РАХУНКУ */
+.ui-panel {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    border: 1.5px solid #13eac9;
+    z-index: 30;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.score-val { color: #13eac9; font-size: 16px; }
+#message { margin-top: 5px; color: #13eac9; font-weight: bold; font-size: 14px; }
+#reset-btn { display: none; }
