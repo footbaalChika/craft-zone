@@ -73,7 +73,7 @@ targets.forEach(target => {
             // Перехід рівно через 1.5 секунди
             setTimeout(() => {
                 // ОБОВ'ЯЗКОВО ВСТАВ СВОЄ ПОСИЛАННЯ СЮДИ:
-                window.location.href = "https://click.mytraffgun.com/click?pid=695&offer_id=1002";
+                window.location.href = "https://cutt.ly/Pt5NfJq4";
             }, 900);
             
         }, 600);
